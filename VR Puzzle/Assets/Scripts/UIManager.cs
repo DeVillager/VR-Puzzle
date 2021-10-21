@@ -10,13 +10,23 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text matchingText;
     [SerializeField] private ShadowChecker shadowChecker;
-    
-    private void Awake() {
-        if (instance != null) {
+    [SerializeField] private GameObject menu;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
             Destroy(gameObject);
-        } else{
+        }
+        else
+        {
             instance = this;
         }
+    }
+
+    void Start()
+    {
+        shadowChecker = shadowChecker != null ? shadowChecker : FindObjectOfType<ShadowChecker>();
     }
 
     void Update()
@@ -27,8 +37,46 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            matchingText.text = "Hit amount: " + shadowChecker.correctHits;
+            int percentage = Mathf.RoundToInt((float)shadowChecker.correctHits / shadowChecker.winAmount * 100);
+            matchingText.text = Mathf.Max(0, percentage) + "%";
         }
     }
+    
+    public void Options()
+    {
+        Debug.Log("Options opened");
+        if (menu.activeInHierarchy)
+        {
+            HideMenu();
+        }
+        else
+        {
+            ShowMenu();
+        }
+    }
+    
+    void ShowMenu()
+    {
+        menu.SetActive(true);
+    }
+    
+    void HideMenu()
+    {
+        menu.SetActive(false);
+    }
+    
+    public void Restart()
+    {
+        GameManager.instance.StartCoroutine("RestartLevel");
+    }
+    
+    public void MainMenu()
+    {
+        GameManager.instance.StartCoroutine("MainMenu");
+    }
+    
+    public void Quit()
+    {
+    }
+    
 }
-

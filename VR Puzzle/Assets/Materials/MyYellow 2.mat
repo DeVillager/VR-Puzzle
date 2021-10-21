@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MyYellow 2
+  m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
+  m_ShaderKeywords: DR_RIM_ON _ALLOWALPHAOVERFLOW_OFF _BACKGROUNDMODE_COLORS _CELPRIMARYMODE_STEPS
+    _EMISSION _TEXTUREBLENDINGMODE_MULTIPLY _UNITYSHADOWMODE_NONE
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BackgroundCubemap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Bump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CelCurveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CelStepTexture:
+        m_Texture: {fileID: 2800000, guid: 4997623218a62634581d5817e7dfd2a1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsCubemap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 568acbb82f18b1e47848ab8bb2588caf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _StarsCubemap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SunTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AllowAlphaOverflow: 0
+    - _AlphaClip: 0
+    - _BackgroundCat: 1
+    - _BackgroundExposure: 1
+    - _BackgroundMode: 0
+    - _Banner: 1
+    - _Blend: 0
+    - _BlendDst: 0
+    - _BlendSrc: 1
+    - _BumpScale: 1
+    - _CameraDistanceFadeClose: 0
+    - _CameraDistanceFadeFar: 10
+    - _CelExtraEnabled: 0
+    - _CelNumSteps: 10
+    - _CelPrimaryMode: 2
+    - _CloudsCat: 1
+    - _CloudsHeight: 0
+    - _CloudsIntensity: 1
+    - _ColorRampOffset: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _Depth: 100
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnableBuiltinFog: 0
+    - _EnableClouds: 0
+    - _EnableFogMessage: 0
+    - _EnableStars: 0
+    - _EnableSun: 0
+    - _EquatorHeight: 0.5
+    - _EquatorSmoothness: 0.5
+    - _FadeEnd: 0.5
+    - _FadeStart: 0.5
+    - _FlatRimEdgeSmoothness: 0
+    - _FlatRimLightAlign: 0
+    - _FlatRimSize: 0
+    - _FlatSpecularEdgeSmoothness: 0
+    - _FlatSpecularSize: 0
+    - _Flatness: 1
+    - _FlatnessExtra: 1
+    - _FogCat: 1
+    - _FogFill: 0
+    - _FogHeight: 0
+    - _FogSmoothness: 0
+    - _FresnelPower: 0.16
+    - _GlossMapScale: 1
+    - _Glossiness: 0.455
+    - _GlossyReflections: 1
+    - _GradientAngle: 230
+    - _GradientCenterX: 3.86
+    - _GradientCenterY: 2.49
+    - _GradientEnabled: 0
+    - _GradientSize: 10
+    - _HandAlpha: 1
+    - _Intensity: 0.5
+    - _LightContribution: 0
+    - _LightmapDirectionPitch: 0
+    - _LightmapDirectionYaw: 0
+    - _Metallic: 0
+    - _MinVisibleAlpha: 0.15
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OutlineWidth: 0.0064
+    - _OverrideLightmapDir: 0
+    - _Parallax: 0.02
+    - _QueueOffset: 0
+    - _ReflectionMapEnabled: 0
+    - _RimEnabled: 1
+    - _RimFactor: 0.65
+    - _SelfShadingSize: 0.67
+    - _SelfShadingSizeExtra: 0.249
+    - _ShadowEdgeSize: 0
+    - _ShadowEdgeSizeExtra: 0.05
+    - _Shininess: 0.962
+    - _SkyboxCat: 1
+    - _SkyboxOffset: 0
+    - _SkyboxRotation: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularEnabled: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _StarsBottomMask: 0
+    - _StarsCat: 1
+    - _StarsHeightMask: 0
+    - _StarsIntensity: 2
+    - _StarsSize: 0.5
+    - _SunCat: 1
+    - _SunIntensity: 1
+    - _SunSize: 0.5
+    - _Surface: 0
+    - _TextureBlendingMode: 0
+    - _TextureImpact: 1
+    - _Thickness: 0.5
+    - _UVSec: 0
+    - _UnityShadowMode: 0
+    - _UnityShadowPower: 0.711
+    - _UnityShadowSharpness: 1
+    - _UvFadeX: 0.1
+    - _UvFadeY: 0.1
+    - _VertexColorsEnabled: 0
+    - _WindQuality: 0
+    - _WireThickness: 418
+    - _ZWrite: 1
+    m_Colors:
+    - _CloudsLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CloudsShadowColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
+    - _Color: {r: 0.9706243, g: 1, b: 0, a: 1}
+    - _ColorBottom: {r: 0.0137021, g: 0.014443799, b: 0.0152085, a: 1}
+    - _ColorDim: {r: 1, g: 0.33446586, b: 0, a: 1}
+    - _ColorDimCurve: {r: 1, g: 0.26236752, b: 0, a: 1}
+    - _ColorDimExtra: {r: 1, g: 0.61635137, b: 0, a: 1}
+    - _ColorDimSteps: {r: 1, g: 0.3303394, b: 0, a: 1}
+    - _ColorGradient: {r: 0, g: 1, b: 0.051297188, a: 1}
+    - _ColorPrimary: {r: 0.39607796, g: 0.72549, b: 1, a: 1}
+    - _ColorTop: {r: 0.031896, g: 0.0343398, b: 0.0368894, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EquatorColor: {r: 1, g: 0.747, b: 0, a: 1}
+    - _FlatRimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FlatSpecularColor: {r: 0.0011415482, g: 1, b: 0, a: 1}
+    - _GroundColor: {r: 0.49803913, g: 0.49699998, b: 0, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _MyColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SkyColor: {r: 0.49803913, g: 0.7450981, b: 1, a: 1}
+    - _SkyboxRotationAxix: {r: 0, g: 1, b: 0, a: 0}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
+  m_BuildTextureStacks: []
