@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BNG;
-using Oculus.Platform.Samples.VrHoops;
+using OVR;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +16,11 @@ public class GameManager : MonoBehaviour
     public bool initPlayerOnStart;
     [SerializeField] private Transform playerStartTransform;
     [SerializeField] private float levelLoadTime = 1f;
+    [SerializeField] private int level = 1;
 
     public enum GameState
     {
+        MainMenu,
         Puzzle,
         LevelCleared
     }
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
         } else{
             instance = this;
         }
-        gameState = GameState.Puzzle;
+        gameState = gameState != GameState.MainMenu ? GameState.Puzzle : gameState;
     }
 
     private void Start()
@@ -38,8 +40,8 @@ public class GameManager : MonoBehaviour
         {
             InitGame();
         }
-
         screenFader = screenFader != null ? screenFader : FindObjectOfType<ScreenFader>();
+        level = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void InitGame()
@@ -49,27 +51,48 @@ public class GameManager : MonoBehaviour
 
     public void LevelClear()
     {
+        if (gameState  == GameState.LevelCleared)
+        {
+            return;
+        }
+        PlayerPrefs.SetInt("level" + (level + 1), 1); // Next level visible in main menu
+        GameState previousState = gameState;
         gameState = GameState.LevelCleared;
-        screenFader.DoFadeIn();
-        StartCoroutine("LoadNextScene");
-        // screenFader.StartCoroutine("fadeOutWithDelay", 1f);
-    }
-
-    IEnumerator LoadNextScene()
-    {
-        yield return new WaitForSeconds(levelLoadTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    IEnumerator RestartLevel()
-    {
-        yield return new WaitForSeconds(levelLoadTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (previousState == GameState.Puzzle)
+        {
+            LoadNextScene();
+        }
+        else // MainMenu
+        {
+            MainMenuUI.instance.ShowPlayButton();
+        }
     }
     
-    IEnumerator MainMenu()
+    public void LoadLevel(int index)
     {
-        yield return new WaitForSeconds(levelLoadTime);
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine("HandleSceneLoading", index);
     }
+
+    public void LoadNextScene()
+    {
+        StartCoroutine("HandleSceneLoading", SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RestartLevel()
+    {
+        StartCoroutine("HandleSceneLoading", SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void MainMenu()
+    {
+        StartCoroutine("HandleSceneLoading", 0);
+    }
+    
+    IEnumerator HandleSceneLoading(int index)
+    {
+        screenFader.DoFadeIn();
+        yield return new WaitForSeconds(levelLoadTime);
+        SceneManager.LoadScene(index);
+    }
+
 }

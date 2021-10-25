@@ -67,12 +67,12 @@ public class UIManager : MonoBehaviour
     
     public void Restart()
     {
-        GameManager.instance.StartCoroutine("RestartLevel");
+        GameManager.instance.RestartLevel();
     }
     
     public void MainMenu()
     {
-        GameManager.instance.StartCoroutine("MainMenu");
+        GameManager.instance.MainMenu();
     }
     
     public void Quit()
