@@ -6,17 +6,18 @@ using UnityEngine;
 public class LevelInfo : MonoBehaviour
 {
     [SerializeField] private SoundFXRef levelMusic;
-    [SerializeField] private AudioManager audioManager;
 
     void Start()
     {
-        Debug.Log(levelMusic.name);
-        Debug.Log(AudioManager.IsSoundPlaying("layton"));
-        Debug.Log(levelMusic.soundFXName);
+        MusicManager.instance.Play(levelMusic.GetClip());
+        // Debug.Log(levelMusic.name);
+        // Debug.Log(AudioManager.IsSoundPlaying("layton"));
+        // Debug.Log(levelMusic.soundFXName);
         // if (!AudioManager.IsSoundPlaying(levelMusic.name))
         // {
         //     AudioManager.StopAllSounds(false);
-        //     levelMusic.PlaySound();
         // }
+        // AudioManager.StopAllSounds(false);
+        // levelMusic.PlaySound();
     }
 }

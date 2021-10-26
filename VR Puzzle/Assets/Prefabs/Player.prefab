@@ -6654,7 +6654,7 @@ MonoBehaviour:
   StrafeSpeed: 1
   StrafeSprintSpeed: 1.25
   JumpForce: 3
-  JumpInput: 00000000
+  JumpInput: 02000000
   AirControl: 1
   AirControlSpeed: 1
   AllowKeyboardInputs: 1

@@ -45,5 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   player: {fileID: 919994741275246430, guid: ab0131ac4203cdf4386b1b81bcad4d87, type: 3}
+  screenFader: {fileID: 0}
   initPlayerOnStart: 0
   playerStartTransform: {fileID: 0}
+  levelLoadTime: 1
+  level: 1
+  levelClearSound:
+    soundFXName: fanfare2
+  quitSound:
+    soundFXName: back

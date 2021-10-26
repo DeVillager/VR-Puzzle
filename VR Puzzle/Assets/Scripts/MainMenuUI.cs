@@ -26,10 +26,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI matchingText;
     [SerializeField] private GameObject levels;
     [SerializeField] private SoundFXRef buttonSound;
+    [SerializeField] private SoundFXRef optionsSound;
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private TextMeshProUGUI playButtonText;
     [SerializeField] private int tutorialCleared;
-    [SerializeField] private RectMask2D optionsMask;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class MainMenuUI : MonoBehaviour
 
     void Start()
     {
-        optionsMask.enabled = true;
+        hideMask.enabled = true;
         shadowChecker = shadowChecker != null ? shadowChecker : FindObjectOfType<ShadowChecker>();
         matchingText.raycastTarget = false;
         tutorialCleared = PlayerPrefs.GetInt("tutorial");
@@ -64,7 +64,7 @@ public class MainMenuUI : MonoBehaviour
         levels.SetActive(true);
         playButtonText.text = "Levels";
         playButtonAnimator.enabled = false;
-        // shadowChecker.gameObject.SetActive(false);
+        shadowChecker.gameObject.SetActive(false);
     }
     
     private void ShowTutorial()
@@ -90,6 +90,7 @@ public class MainMenuUI : MonoBehaviour
     public void Options()
     {
         Debug.Log("Options opened");
+        buttonSound.PlaySound();
         if (!hideMask.enabled)
         {
             HideMenu();
@@ -116,6 +117,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void ShowCredits()
     {
+        buttonSound.PlaySound();
         bool creditsOn = creditsAnimator.GetBool("Credits");
         Debug.Log("creditsOn: " + creditsOn);
         creditsAnimator.SetBool("Credits", !creditsOn);
@@ -140,6 +142,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void ShowRules()
     {
+        buttonSound.PlaySound();
         bool rulesOn = rulesAnimator.GetBool("Rules");
         Debug.Log("rules on: " + rulesOn);
         rulesAnimator.SetBool("Rules", !rulesOn);
@@ -153,11 +156,13 @@ public class MainMenuUI : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        optionsSound.PlaySound();
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }
 
     public void SetSoundsVolume(float volume)
     {
-        audioMixer.SetFloat("SoundsVolume", Mathf.Log10(volume) * 20);
+        optionsSound.PlaySound();
+        audioMixer.SetFloat("SoundsVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }
 }

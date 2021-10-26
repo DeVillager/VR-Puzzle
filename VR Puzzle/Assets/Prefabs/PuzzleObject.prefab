@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdea428d48e2bb488d33d5f75c39bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabSound:
+    soundFXName: grab
   BeingHeld: 0
   GrabButton: 2
   Grabtype: 2

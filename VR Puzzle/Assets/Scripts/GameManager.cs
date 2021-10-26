@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using BNG;
 using OVR;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerStartTransform;
     [SerializeField] private float levelLoadTime = 1f;
     [SerializeField] private int level = 1;
+    [SerializeField] private SoundFXRef levelClearSound;
+    [SerializeField] private SoundFXRef quitSound;
 
     public enum GameState
     {
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("level" + (level + 1), 1); // Next level visible in main menu
         GameState previousState = gameState;
         gameState = GameState.LevelCleared;
+        levelClearSound.PlaySound();
         if (previousState == GameState.Puzzle)
         {
             LoadNextScene();
@@ -80,11 +85,13 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        quitSound.PlaySound();
         StartCoroutine("HandleSceneLoading", SceneManager.GetActiveScene().buildIndex);
     }
     
     public void MainMenu()
     {
+        quitSound.PlaySound();
         StartCoroutine("HandleSceneLoading", 0);
     }
     
