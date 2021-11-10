@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using OVR;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Button = UnityEngine.UI.Button;
+using Slider = UnityEngine.UI.Slider;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -28,6 +24,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private SoundFXRef buttonSound;
     [SerializeField] private SoundFXRef optionsSound;
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider soundSlider;
     [SerializeField] private TextMeshProUGUI playButtonText;
     [SerializeField] private int tutorialCleared;
 
@@ -45,6 +43,8 @@ public class MainMenuUI : MonoBehaviour
 
     void Start()
     {
+        musicSlider.value = MusicManager.instance.musicLevel;
+        soundSlider.value = MusicManager.instance.soundLevel;
         hideMask.enabled = true;
         shadowChecker = shadowChecker != null ? shadowChecker : FindObjectOfType<ShadowChecker>();
         matchingText.raycastTarget = false;
@@ -103,14 +103,12 @@ public class MainMenuUI : MonoBehaviour
 
     public void ShowMenu()
     {
-        // menu.SetActive(true);
         hideMask.enabled = false;
         description.text = description1;
     }
 
     void HideMenu()
     {
-        // menu.SetActive(false);
         hideMask.enabled = true;
         description.text = description2;
     }
@@ -128,9 +126,6 @@ public class MainMenuUI : MonoBehaviour
         tutorialCleared = 1;
         PlayerPrefs.SetInt("tutorial", tutorialCleared); // Next level visible in main menu
         ShowLevels();
-        // description1 = "Level selection";
-        // description2 = "Level selection";
-        // shadowChecker.gameObject.SetActive(false);
     }
 
     public void Quit()
@@ -146,7 +141,6 @@ public class MainMenuUI : MonoBehaviour
         bool rulesOn = rulesAnimator.GetBool("Rules");
         Debug.Log("rules on: " + rulesOn);
         rulesAnimator.SetBool("Rules", !rulesOn);
-        // rulesAnimator.SetTrigger("Rules");
     }
 
     public void ShowPlayButton()
@@ -156,12 +150,14 @@ public class MainMenuUI : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
+        MusicManager.instance.musicLevel = volume;
         optionsSound.PlaySound();
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }
 
     public void SetSoundsVolume(float volume)
     {
+        MusicManager.instance.soundLevel = volume;
         optionsSound.PlaySound();
         audioMixer.SetFloat("SoundsVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }

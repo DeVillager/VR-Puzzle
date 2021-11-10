@@ -3179,6 +3179,8 @@ MonoBehaviour:
   optionsSound:
     soundFXName: smallclick
   audioMixer: {fileID: 24100000, guid: 1dd706bb85d8aef4e83a6229dbd62c36, type: 2}
+  musicSlider: {fileID: 2138282082315603591}
+  soundSlider: {fileID: 1615233994251394558}
   playButtonText: {fileID: 1615233994215641062}
   tutorialCleared: 0
 --- !u!1 &8178479929246735624
@@ -3485,6 +3487,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dd6f0c36c4b4b4478ee1cbc25c327d9, type: 3}
+--- !u!114 &2138282082315603591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3794368917587404244, guid: 5dd6f0c36c4b4b4478ee1cbc25c327d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2955762497863658323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8178479931153830394 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6375749615060286121, guid: 5dd6f0c36c4b4b4478ee1cbc25c327d9,

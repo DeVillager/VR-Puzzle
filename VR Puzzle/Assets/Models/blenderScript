@@ -1,0 +1,19 @@
+import bpy
+import bmesh
+from mathutils import Matrix
+
+context = bpy.context
+for ob in context.selected_objects:
+    me = ob.data
+    ob.display_type = 'WIRE'
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    #bm.normal_update()
+    bmesh.ops.dissolve_limit(
+            bm,
+            edges=bm.edges,
+            verts=bm.verts,
+            angle_limit=.1
+            )
+            
+    bm.to_mesh(me)

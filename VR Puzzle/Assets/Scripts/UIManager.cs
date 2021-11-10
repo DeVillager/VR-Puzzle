@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectMask2D optionsMask;
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private SoundFXRef optionsSound;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider soundSlider;
 
     private void Awake()
     {
@@ -36,6 +39,8 @@ public class UIManager : MonoBehaviour
         optionsMask.enabled = true;
         shadowChecker = shadowChecker != null ? shadowChecker : FindObjectOfType<ShadowChecker>();
         SetLevelText();
+        musicSlider.value = MusicManager.instance.musicLevel;
+        soundSlider.value = MusicManager.instance.soundLevel;
     }
 
     void Update()
@@ -56,26 +61,8 @@ public class UIManager : MonoBehaviour
         optionsSound.PlaySound();
         Debug.Log("Options opened");
         optionsMask.enabled = !optionsMask.enabled;
-        // if (!optionsMask.enabled)
-        // {
-        //     HideMenu();
-        // }
-        // else
-        // {
-        //     ShowMenu();
-        // }
     }
-    
-    void ShowMenu()
-    {
-        optionsMask.enabled = false;
-    }
-    
-    void HideMenu()
-    {
-        optionsMask.enabled = true;
-    }
-    
+
     public void Restart()
     {
         GameManager.instance.RestartLevel();
@@ -88,12 +75,14 @@ public class UIManager : MonoBehaviour
     
     public void SetMusicVolume(float volume)
     {
+        MusicManager.instance.musicLevel = volume;
         optionsSound.PlaySound();
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }
 
     public void SetSoundsVolume(float volume)
     {
+        MusicManager.instance.soundLevel = volume;
         optionsSound.PlaySound();
         audioMixer.SetFloat("SoundsVolume", Mathf.Log10(0.0001f + (volume / 10)) * 20);
     }

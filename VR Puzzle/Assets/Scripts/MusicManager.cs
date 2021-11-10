@@ -4,6 +4,8 @@ public class  MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
     [SerializeField] private AudioSource audioSource;
+    public float musicLevel;
+    public float soundLevel;
 
     private void Awake()
     {
