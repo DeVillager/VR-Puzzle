@@ -1,3 +1,3 @@
 # VR Puzzle Game for Oculus
 
-In progress...
+Game page: https://kirage.itch.io/once-upon-a-shadow
